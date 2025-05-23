@@ -6,7 +6,7 @@ You can check out the baseline model we'll be using on Hugging Face [right here]
 
 ## View the full notebook right here:
 
-[My Colab Notebook](https://colab.research.google.com/drive/17SPfMHY63F5r3SOxO1w0foKuHGOkoZpu?usp=sharing)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/17SPfMHY63F5r3SOxO1w0foKuHGOkoZpu?usp=sharing)
 
 ## The Pipeline
 
