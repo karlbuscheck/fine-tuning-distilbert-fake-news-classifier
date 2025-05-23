@@ -4,7 +4,7 @@ In this project, we’ll build a binary classification model to detect fake news
 
 You can check out baseline model we'll be using on Hugging Face [right here](https://huggingface.co/distilbert/distilbert-base-uncased). 
 
-View the full notebook right here:
+## View the full notebook right here:
 
 ## The Pipeline
 
