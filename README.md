@@ -2,9 +2,11 @@
 
 In this project, we’ll build a binary classification model to detect fake news using **DistilBERT**, a streamlined version of **BERT** — one of the foundational large language models (LLMs). We’ll fine-tune a pretrained DistilBERT model on our fake news dataset, evaluate how well it generalizes to *unseen* news articles, and then test it on a very *real* story from the front page of *The New York Times*.
 
-You can check out baseline model we'll be using on Hugging Face [right here](https://huggingface.co/distilbert/distilbert-base-uncased). 
+You can check out the baseline model we'll be using on Hugging Face [right here](https://huggingface.co/distilbert/distilbert-base-uncased). 
 
 ## View the full notebook right here:
+
+https://colab.research.google.com/drive/17SPfMHY63F5r3SOxO1w0foKuHGOkoZpu?usp=sharing
 
 ## The Pipeline
 
