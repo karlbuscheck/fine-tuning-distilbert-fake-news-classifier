@@ -35,6 +35,40 @@ Before we dive in, here's a quick rundown of what is to come:
 - **shutil** — for saving and exporting the fine-tuned model    
 - **Google Drive** — used to store and export the final model
 
+## ⚠️ Evaluation Notes & Known Limitations
+
+During a post-hoc audit of the dataset and evaluation pipeline, I identified a couple of important considerations regarding model performance and generalization.
+
+**Duplicate Data & Potential Leakage**
+
+The dataset contains a non-trivial number of duplicate articles (exact duplicate content strings). ~5,793 duplicate rows were identified in the full dataset. In a random train/test split, ~1,533 identical articles appeared in both the training and test sets. If duplicates are not removed before splitting, this creates data leakage, allowing the model to effectively “memorize” examples that later appear in the test set. This can inflate reported accuracy.
+
+Recommended Fix
+
+Deduplicate before splitting:
+
+`fake_news = fake_news.drop_duplicates(subset="content").reset_index(drop=True)`
+
+Then re-run the train/test split and training process.
+Note: Reported test accuracy may decrease after deduplication, but will better reflect true generalization.
+
+**Reproducibility**
+
+Fine-tuning transformer models involves stochastic processes (random initialization, data shuffling, dropout). Without setting a random seed, confidence scores and even metrics may vary slightly between runs.
+
+For more reproducible results:
+
+```
+import random, numpy as np, torch
+from transformers import set_seed
+
+seed = 42
+random.seed(seed)
+np.random.seed(seed)
+torch.manual_seed(seed)
+torch.cuda.manual_seed_all(seed)
+set_seed(seed)
+```
 ## Acknowledgements
 
 This project started with a notebook I was working on for my NLP class, taught by  Associate Professor Michele Samorani at Santa Clara University. Thanks to the professor and the Leavey School of Business for providing the scaffolding on which this DistilBERT fake news classifier was built.
